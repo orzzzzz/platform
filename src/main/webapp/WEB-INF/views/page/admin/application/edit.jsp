@@ -58,6 +58,6 @@
            </div>
        </form>
    </div>
-   <jsp:include page="../common/common.jsp"/>
+   <jsp:include page="../../client/common/common.jsp"/>
 </body>
 </html>

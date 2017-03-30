@@ -1,10 +1,11 @@
 define(['client/system/model/registerModel', 'jquery', 'jquery.validate'], function (model, $) {
     function init() {
-        $('#js-submit').click(function () {
+        $('#js-submit').click(function (event) {
+            event.preventDefault();
             if (_formValidate()) {
                 $.ajax({
                     url: window.__PLATFORM__.root_url + "client/user/save",
-                    async: true,
+                    async: false,
                     type: 'post',
                     dataType: 'json',
                     serializable: false,
@@ -12,7 +13,7 @@ define(['client/system/model/registerModel', 'jquery', 'jquery.validate'], funct
                     success: function (data) {
                         if (data.status == "200") {
                             alert("添加成功！");
-                            window.location.href = window.__PLATFORM__.root_url+"client/tologin-";
+                            window.location.href = window.__PLATFORM__.root_url+"client/tologin";
                         } else {
                             if (data.subStatus == "1") {
                                 alert("用户名已存在");
@@ -20,6 +21,9 @@ define(['client/system/model/registerModel', 'jquery', 'jquery.validate'], funct
                                 alert("添加失败！");
                             }
                         }
+                    },
+                    error:function (data) {
+                        alert(data.status);
                     }
                 });
             }

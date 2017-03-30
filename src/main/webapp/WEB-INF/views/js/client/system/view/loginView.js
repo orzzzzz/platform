@@ -1,6 +1,8 @@
 define(['client/system/model/loginModel', 'jquery', 'jquery.validate'], function (model, $) {
     function init() {
-        $('#js-submit').click(function () {
+
+        $('#js-submit').click(function (event) {
+            event.preventDefault();
             if (_formValidate()) {
                 _submitForm();
             }
@@ -19,7 +21,7 @@ define(['client/system/model/loginModel', 'jquery', 'jquery.validate'], function
     function _submitForm() {
         $.ajax({
             url: window.__PLATFORM__.root_url + "client/login",
-            async: true,
+            async: false,
             type: 'post',
             dataType: 'json',
             serializable: false,
@@ -47,6 +49,7 @@ define(['client/system/model/loginModel', 'jquery', 'jquery.validate'], function
                     required: true,
                     remote: {
                         type: "GET",
+                        async:false,
                         url: window.__PLATFORM__.root_url + "client/captcha/checkcode",
                         data: {
                             captcha: function () {

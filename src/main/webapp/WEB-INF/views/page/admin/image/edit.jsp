@@ -40,7 +40,7 @@
             <button id="js-reset" class="btn btn-default">重置</button>
         </div>
     </div>
-<jsp:include page="../common/common.jsp"/>
+<jsp:include page="../../client/common/common.jsp"/>
 <script src="<c:url value='/js/admin/image/controller/editController.js'/>"></script>
 </body>
 </html>

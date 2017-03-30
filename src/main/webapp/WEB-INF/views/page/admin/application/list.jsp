@@ -39,7 +39,7 @@
                 <td>${ status.index + 1}</td>
                 <td><i class="app-icon"><img src="${app.appIconUrl}" alt=""></i>${app.appName}</td>
                 <td>${app.appVersion}</td>
-                <%--<td data-cateId="${app.appCategoryId}">${app.appCategoryName}</td>--%>
+                    <%--<td data-cateId="${app.appCategoryId}">${app.appCategoryName}</td>--%>
                 <td value="${app.appType}">
                     <c:if test="${app.appType==0}">浏览器应用</c:if>
                     <c:if test="${app.appType==1}">插件应用</c:if>
@@ -73,7 +73,7 @@
         </tbody>
     </table>
 </div>
-<jsp:include page="../common/common.jsp"/>
+<jsp:include page="../../client/common/common.jsp"/>
 <script src="<c:url value='/js/admin/application/controller/listController.js'/>"></script>
 </body>
 </html>

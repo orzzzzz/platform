@@ -45,7 +45,7 @@
             </tbody>
         </table>
     </div>
-<jsp:include page="../common/common.jsp"/>
+    <jsp:include page="../../client/common/common.jsp"/>
 <script src="<c:url value='/js/admin/image/controller/listController.js'/> "></script>
 </body>
 </html>

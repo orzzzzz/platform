@@ -47,7 +47,7 @@
     </tr>
     {{/each}}
 </script>
-<jsp:include page="../common/common.jsp"/>
+<jsp:include page="../../client/common/common.jsp"/>
 <script type="text/javascript" src="<c:url value='/js/admin/business/controller/collegeListController.js'/>"></script>
 </body>
 </html>

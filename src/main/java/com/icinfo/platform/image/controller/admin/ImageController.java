@@ -52,7 +52,7 @@ public class ImageController {
      */
     @RequestMapping(value = "/toaddoredit", method = RequestMethod.GET)
     public String toAddOrEdit() throws Exception {
-        return "client/image/edit";
+        return "admin/image/edit";
     }
 
     /**

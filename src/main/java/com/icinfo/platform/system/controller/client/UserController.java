@@ -25,7 +25,7 @@ public class UserController {
      * @return 注册结果
      * @throws Exception
      */
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @RequestMapping(value = "/save", method = RequestMethod.POST, produces = "application/json")
     @ResponseBody
     public AjaxResponse<Boolean> save(User user) throws Exception {
         if (userService.getUser(user.getLoginName()) == null) {

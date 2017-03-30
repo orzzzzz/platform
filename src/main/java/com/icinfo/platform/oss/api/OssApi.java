@@ -52,12 +52,27 @@ public class OssApi {
         clientManager.getOssClient().putObject(bucketName, "1", new File("E:\\otherworkspace\\platform\\src\\main\\webapp\\upload\\image\\14876585220751875.png"));
     }
 
+    /**
+     * 上传文件：InputStream
+     *
+     * @param name oss key
+     * @param inputStream 输入流
+     * @return 上传结果
+     * @throws Exception
+     */
     public String uploadFile(String name, InputStream inputStream)throws Exception{
         PutObjectResult result = clientManager.getOssClient().putObject(bucketName, name, inputStream);
         return result.getETag();
     }
 
-    public String uploadImg2Oss(MultipartFile file) throws Exception {
+    /**
+     * 上传文件：MultipartFile
+     *
+     * @param file 文件
+     * @return oss key
+     * @throws Exception
+     */
+    public String uploadFile(MultipartFile file) throws Exception {
         if (file.getSize() > 1024 * 1024) {
             throw new Exception("上传图片大小不能超过1M！");
         }

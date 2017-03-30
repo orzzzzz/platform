@@ -48,7 +48,7 @@ public class ApplicationServiceImpl implements IApplicationService {
      */
     @Override
     public int insertApp(Application application, CommonsMultipartFile iconFile) throws Exception {
-        //String name = ossApi.uploadImg2Oss(iconFile);
+        //String name = ossApi.uploadFile(iconFile);
         String name = iconFile.getOriginalFilename();
         ossApi.uploadFile(name, iconFile.getInputStream());
         application.setAppIconUrl(ossApi.getUrl(name));
