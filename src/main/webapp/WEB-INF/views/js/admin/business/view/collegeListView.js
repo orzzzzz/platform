@@ -1,4 +1,4 @@
-define(['admin/business/model/collegeListModel', 'jquery', 'handlebars', 'ztree', 'ztree.excheck'], function (model, $, Handlebars) {
+define(['admin/business/model/collegeListModel', 'jquery', 'handlebars', 'ztree', 'ztreeCheck'], function (model, $, Handlebars) {
     var zTree;
     var setting = {
         view: {

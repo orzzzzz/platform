@@ -13,8 +13,9 @@ require.config({
         'jquery.placeholder': 'lib/jquery.placeholder',
         'jquery.ui': 'lib/jquery-ui',
         'jquery.serialize': 'lib/jquery.serialize-object.min',
-        'ztree': 'lib/zTree/jquery.ztree.core.min',
-        'ztree.excheck': 'lib/zTree/jquery.ztree.excheck.min'
+        'ztree': 'lib/ztree/jquery.ztree.core.min',
+        'ztreeCheck': 'lib/ztree/jquery.ztree.excheck.min',
+        'metisMenu': 'lib/metisMenu'
     },
     shim: {
         'bootstrap': {
@@ -32,8 +33,11 @@ require.config({
         'ztree': {
             deps: ['jquery']
         },
-        'ztree.excheck': {
+        'ztreeCheck': {
             deps: ['jquery', 'ztree']
+        },
+        'metisMenu': {
+            deps: ['jquery']
         }
     }
 });

@@ -10,12 +10,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller("clientIndexController")
 public class IndexController {
     /**
-     * 跳转到首页
+     * 跳转到未登录首页
      *
      * @return
      */
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index() throws Exception {
-        return "client/index";
+        return "index";
+    }
+
+    /**
+     * 跳转到登陆后首页
+     *
+     * @return
+     */
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    public String home() throws Exception {
+        return "client/home";
     }
 }

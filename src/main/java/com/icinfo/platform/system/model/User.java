@@ -304,4 +304,20 @@ public class User implements Serializable {
     public void setOperateTime(Date operateTime) {
         this.operateTime = operateTime;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", loginName='" + loginName + '\'' +
+                ", password='" + password + '\'' +
+                ", realName='" + realName + '\'' +
+                ", sex='" + sex + '\'' +
+                ", encryptSalt='" + encryptSalt + '\'' +
+                ", type='" + type + '\'' +
+                ", status='" + status + '\'' +
+                ", createTime=" + createTime +
+                ", operateTime=" + operateTime +
+                '}';
+    }
 }
