@@ -1,6 +1,7 @@
 package com.icinfo.platform.image.service;
 
-import com.icinfo.platform.common.annotation.IgnoreSecurity;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.icinfo.platform.business.dto.CollegeDto;
 import com.icinfo.platform.common.test.SpringTxTestCase;
 import com.icinfo.platform.image.dao.ImageDao;
 import org.junit.Ignore;
@@ -16,9 +17,6 @@ public class ImageServiceTest extends SpringTxTestCase {
     @Autowired
     private IImageService imageService;
 
-    @Autowired
-    private ImageDao imageDao;
-
     @Test
     @Ignore
     public void testSelectOne() throws Exception {
@@ -26,7 +24,7 @@ public class ImageServiceTest extends SpringTxTestCase {
         Map<String, Object> map = imageService.selectOne(id);
         System.out.println(map.get("I_URL"));
 
-        Map<String, Object> map1 = imageDao.selectOne(id);
+        Map<String, Object> map1 = imageService.selectOne(id);
         System.out.println(map.get("I_TYPE"));
     }
 }

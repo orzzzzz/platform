@@ -125,7 +125,7 @@ public class OssApi {
     }
 
     /**
-     * Description: 判断OSS服务文件上传时文件的contentType
+     * 描述: 判断OSS服务文件上传时文件的contentType
      *
      * @param FilenameExtension 文件后缀
      * @return String
