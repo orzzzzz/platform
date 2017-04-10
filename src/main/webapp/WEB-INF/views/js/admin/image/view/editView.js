@@ -1,4 +1,4 @@
-define(['admin/image/model/editModel', 'jquery', 'jquery.validate'], function (model, $) {
+define(['admin/image/model/editModel', 'jquery', 'layer', 'jquery.validate'], function (model, $, layer) {
     function init() {
         $('#js-submit').click(function () {
             if (!isPic()) {
@@ -9,7 +9,7 @@ define(['admin/image/model/editModel', 'jquery', 'jquery.validate'], function (m
             }
         });
 
-        $('#js-reset').click(function () {
+        $('#js-reset').click(function () {  
            $('#js-form')[0].reset();
         });
     }

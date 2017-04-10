@@ -40,6 +40,17 @@ public class CollegeController {
     }
 
     /**
+     * 进入新增/编辑页面
+     *
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "toaddoredit", method = RequestMethod.GET)
+    public String toAddOrEdit() throws Exception{
+        return "admin/business/collegeEdit";
+    }
+
+    /**
      * 根据地域内的所有高校
      * @param code 地域code
      * @return 地域内的所有高校

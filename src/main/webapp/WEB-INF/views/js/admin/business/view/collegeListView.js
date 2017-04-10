@@ -1,4 +1,4 @@
-define(['admin/business/model/collegeListModel', 'jquery', 'handlebars', 'ztree', 'ztreeCheck'], function (model, $, Handlebars) {
+define(['admin/business/model/collegeListModel', 'jquery', 'layer', 'handlebars', 'ztree', 'ztreeCheck'], function (model, $, layer, Handlebars) {
     var zTree;
     var setting = {
         view: {
@@ -57,6 +57,8 @@ define(['admin/business/model/collegeListModel', 'jquery', 'handlebars', 'ztree'
     function init() {
         // $.fn.zTree.init($("#user_tree"), setting, zNodes);
         onLoadZTree();
+
+        _initBind();
     }
 
     function _initCollege(code) {
@@ -65,7 +67,7 @@ define(['admin/business/model/collegeListModel', 'jquery', 'handlebars', 'ztree'
             cache: false,//是否使用缓存
             type: 'GET',//请求方式：post
             dataType: 'json',//数据传输格式：json
-            url: window.__PLATFORM__.root_url + "client/college/readlistbycode",//请求的action路径
+            url: window.__PLATFORM__.root_url + "admin/college/readlistbycode",//请求的action路径
             data: {code: code},
             error: function () {
                 //请求失败处理函数
@@ -100,7 +102,7 @@ define(['admin/business/model/collegeListModel', 'jquery', 'handlebars', 'ztree'
             cache: false,//是否使用缓存
             type: 'GET',//请求方式：post
             dataType: 'json',//数据传输格式：json
-            url: window.__PLATFORM__.root_url + "client/base/readarealist",//请求的action路径
+            url: window.__PLATFORM__.root_url + "admin/base/readarealist",//请求的action路径
             error: function () {
                 //请求失败处理函数
                 alert('请求失败！');
@@ -112,6 +114,17 @@ define(['admin/business/model/collegeListModel', 'jquery', 'handlebars', 'ztree'
         });
         var t = $("#user_tree");
         t = $.fn.zTree.init(t, setting, treeNodes);
+    }
+
+    function _initBind() {
+        $('#add').click(function () {
+            layer.open({
+                title: "新增",
+                type: 2,
+                area: ['600px', '500px'],
+                content: [window.__PLATFORM__.root_url + 'admin/college/toaddoredit', 'no']
+            });
+        });
     }
 
     return {

@@ -21,8 +21,8 @@ require.config({
         'bootstrap': {
             deps: ['jquery', 'html5shiv.min', 'respond.min', 'lib/css!lib/bootstrap/css/bootstrap.min.css']
         },
-        'layery1': {
-            deps: ['jquery']
+        'layer': {
+            deps: ['jquery', 'lib/css!lib/layer/skin/layer.css']
         },
         'pagination': {
             deps: ['jquery', 'lib/css!lib/pagination/pagination.css']

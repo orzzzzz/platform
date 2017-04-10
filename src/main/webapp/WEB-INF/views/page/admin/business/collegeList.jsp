@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="<c:url value='/js/lib/bootstrap/css/bootstrap.min.css'/>"/>
     <link rel="stylesheet" href="<c:url value='/css/client.css'/>"/>
     <script type="text/javascript" src="<c:url value='/js/lib/jquery-1.12.3.min.js'/>"></script>
-    <link rel="stylesheet" href="<c:url value='/js/lib/zTree/skin/zTreeStyle.css'/>"/>
+    <link rel="stylesheet" href="<c:url value='/js/lib/ztree/skin/zTreeStyle.css'/>"/>
     <style>
         div {
             float: left;
@@ -19,6 +19,9 @@
         style="border: 1px solid #617775;overflow-y: scroll;height: auto;width: 200px;"></ul>
 </div>
 <div>
+    <div>
+        <button id="add" class="btn btn-primary">新增</button>
+    </div>
     <table id="college" class="table table-bordered">
         <%--<th>序号</th>--%>
         <th>校名</th>

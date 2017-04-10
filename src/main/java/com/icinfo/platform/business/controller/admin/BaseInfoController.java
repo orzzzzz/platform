@@ -3,6 +3,7 @@ package com.icinfo.platform.business.controller.admin;
 import com.icinfo.platform.business.model.BaseInfoArea;
 import com.icinfo.platform.business.service.IBaseInfoService;
 import com.icinfo.platform.common.bean.AjaxResponse;
+import com.icinfo.platform.common.bean.AjaxResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
