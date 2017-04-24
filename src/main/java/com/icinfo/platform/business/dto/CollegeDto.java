@@ -2,9 +2,6 @@ package com.icinfo.platform.business.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.icinfo.platform.business.model.College;
-import com.sun.org.glassfish.gmbal.NameValue;
-import org.elasticsearch.common.inject.name.Named;
-import org.springframework.core.annotation.AliasFor;
 
 /**
  * TODO

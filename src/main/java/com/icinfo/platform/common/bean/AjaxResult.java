@@ -1,70 +1,91 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by Fernflower decompiler)
+//
+
 package com.icinfo.platform.common.bean;
 
-/**
- * TODO
- */
-public class AjaxResult<T> {
-    /**
-     * 结果数据
-     */
-    private T data;
+import java.io.Serializable;
 
-    /**
-     * 结果标识
-     */
-    private boolean flag;
+public class AjaxResult implements Serializable {
+    private static final long serialVersionUID = -3282121504305297818L;
+    private String status = "success";
+    private String errorCode = "";
+    private String msg = null;
+    private Object data = null;
 
-    /**
-     * 业务编码
-     */
-    private int code;
-
-    /**
-     * 错误信息
-     */
-    private String error;
-
-    public AjaxResult() {
+    private AjaxResult() {
     }
 
-    public AjaxResult(T data) {
-        this.data = data;
+    public static AjaxResult success(String msg) {
+        AjaxResult success = new AjaxResult();
+        success.setStatus("success");
+        success.setMsg(msg);
+        return success;
     }
 
-    public AjaxResult(int code, String error) {
-        this.code = code;
-        this.error = error;
+    public static AjaxResult success(String msg, Object data) {
+        AjaxResult success = new AjaxResult();
+        success.setStatus("success");
+        success.setMsg(msg);
+        success.setData(data);
+        return success;
     }
 
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
-
-    public boolean isFlag() {
-        return flag;
-    }
-
-    public void setFlag(boolean flag) {
-        this.flag = flag;
-    }
-
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public String getError() {
+    public static AjaxResult error(String msg) {
+        AjaxResult error = new AjaxResult();
+        error.setStatus("fail");
+        error.setMsg(msg);
         return error;
     }
 
-    public void setError(String error) {
-        this.error = error;
+    public static AjaxResult error(String errorCode, String msg) {
+        AjaxResult error = new AjaxResult();
+        error.setStatus("fail");
+        error.setErrorCode(errorCode);
+        error.setMsg(msg);
+        return error;
     }
+
+    public static AjaxResult error(String errorCode, String msg, Object data) {
+        AjaxResult error = new AjaxResult();
+        error.setStatus("fail");
+        error.setErrorCode(errorCode);
+        error.setMsg(msg);
+        error.setData(data);
+        return error;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getMsg() {
+        return this.msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public Object getData() {
+        return this.data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
+    }
+
+    public String getErrorCode() {
+        return this.errorCode;
+    }
+
+    public void setErrorCode(String errorCode) {
+        this.errorCode = errorCode;
+    }
+
 }
