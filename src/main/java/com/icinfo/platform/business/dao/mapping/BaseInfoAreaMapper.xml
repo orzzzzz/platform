@@ -8,11 +8,11 @@
             size: 引用数目.
             readOnly: 只读.
         -->
-    <cache type="com.icinfo.platform.cache.MybatisRedisCache"
-           eviction="LRU"
-           flushInterval="1800000"
-           size="1024"
-           readOnly="true"/>
+    <!--<cache type="com.icinfo.platform.cache.MybatisRedisCache"-->
+           <!--eviction="LRU"-->
+           <!--flushInterval="1800000"-->
+           <!--size="1024"-->
+           <!--readOnly="true"/>-->
 
     <resultMap id="BaseResultMap" type="com.icinfo.platform.business.model.BaseInfoArea"
     extends="com.icinfo.platform.business.mapper.BaseInfoAreaMapper.BaseResultMap">

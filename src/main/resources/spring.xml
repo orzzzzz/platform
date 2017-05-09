@@ -28,10 +28,7 @@
         <property name="mapperLocations">
             <list>
                 <value>
-                    classpath*:/com/icinfo/**/mapper/mapping/*Mapper.xml
-                </value>
-                <value>
-                    classpath*:/com/icinfo/**/dao/mapping/*Mapper.xml
+                    classpath*:**/mapper/mapping/*Mapper.xml
                 </value>
             </list>
         </property>
