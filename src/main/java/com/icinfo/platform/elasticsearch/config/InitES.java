@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * 初始化连接ES服务端
  */
-//@Configuration
+@Configuration
 public class InitES {
     @Value("${es.connection.url}")
     private String connectionUrl;
