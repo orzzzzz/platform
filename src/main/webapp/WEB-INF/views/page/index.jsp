@@ -13,8 +13,8 @@
 </head>
 <body>
 <h2>Hello World!</h2>
-<a href="<c:url value='/client/tologin'/>">登录</a>
-<a type="button" href="<c:url value='/client/toregister'/>">注册</a>
+<%--<a href="<c:url value='/client/tologin'/>">登录</a>--%>
+<%--<a type="button" href="<c:url value='/client/toregister'/>">注册</a>--%>
 <!-- js文件 -->
 <script src="<c:url value='/js/client/index/index_main.js'/>"/>
 </body>
