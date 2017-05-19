@@ -212,5 +212,5 @@
         <!--<constructor-arg ref="containerProperties"/>-->
     <!--</bean>-->
 
-    <import resource="classpath:spring-redis.xml"/>
+    <!--<import resource="classpath:spring-redis.xml"/>-->
 </beans>
