@@ -395,7 +395,7 @@
                     <!--<defaultsDescriptor>${basedir}/webdefault.xml</defaultsDescriptor>-->
                     <!--</webApp>-->
                     <httpConnector>
-                        <port>8080</port>
+                        <port>8084</port>
                     </httpConnector>
                     <!--<webAppSourceDirectory>${basedir}/src/main/webapp</webAppSourceDirectory>-->
                     <!--<jettyXml>${basedir}/jetty-context.xml</jettyXml>-->

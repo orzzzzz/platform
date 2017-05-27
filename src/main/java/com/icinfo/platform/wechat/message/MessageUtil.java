@@ -1,4 +1,4 @@
-package com.icinfo.platform.wechat.wxsdk.message;
+package com.icinfo.platform.wechat.message;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.core.util.QuickWriter;
