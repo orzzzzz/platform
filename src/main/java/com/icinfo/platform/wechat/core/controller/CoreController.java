@@ -44,9 +44,11 @@ public class CoreController extends BaseController {
 
     @RequestMapping(value = "/service", method = RequestMethod.POST, produces = "application/xml;charset=UTF-8")
     public String processMsg(HttpServletRequest request) throws Exception {
-        if (!isWechatCall(request, ConfigConstant.WECHAT_TOKEN)) {
+        if (isWechatCall(request, ConfigConstant.WECHAT_TOKEN)) {
             return "";
         }
-        return coreService.processRequest(request);
+        String message = coreService.processRequest(request);
+        System.out.println(message);
+        return message;
     }
 }

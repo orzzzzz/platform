@@ -1,11 +1,18 @@
 package com.icinfo.platform.wechat.wxsdk.common.utils;
 
+import com.icinfo.platform.wechat.wxsdk.message.bean.TextMessage;
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.core.util.QuickWriter;
+import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
+import com.thoughtworks.xstream.io.xml.PrettyPrintWriter;
+import com.thoughtworks.xstream.io.xml.XppDriver;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.InputStream;
+import java.io.Writer;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +21,33 @@ import java.util.Map;
  * Created by Administrator on 2017/5/26.
  */
 public class XMLUtils {
+    /**
+     * 扩展xstream使其支持CDATA
+     */
+    private static XStream xstream = new XStream(new XppDriver() {
+        public HierarchicalStreamWriter createWriter(Writer out) {
+            return new PrettyPrintWriter(out) {
+                // 对所有xml节点的转换都增加CDATA标记
+                boolean cdata = true;
+
+                @SuppressWarnings("unchecked")
+                public void startNode(String name, Class clazz) {
+                    super.startNode(name, clazz);
+                }
+
+                protected void writeText(QuickWriter writer, String text) {
+                    if (cdata) {
+                        writer.write("<![CDATA[");
+                        writer.write(text);
+                        writer.write("]]>");
+                    } else {
+                        writer.write(text);
+                    }
+                }
+            };
+        }
+    });
+
     /**
      * 解析微信发来的请求（XML）
      *
@@ -43,5 +77,29 @@ public class XMLUtils {
         // 释放资源
         inputStream.close();
         return map;
+    }
+
+    /**
+     * 文本消息对象转换成xml
+     *
+     * @param textMessage 文本消息对象
+     * @return xml
+     */
+    public static String messageToXml(TextMessage textMessage) {
+        xstream.alias("xml", textMessage.getClass());
+        return xstream.toXML(textMessage);
+    }
+
+    /**
+     * 对象转换为XML
+     *
+     * @param t   对象
+     * @param <T> 对象泛型
+     * @return 转换后的xml
+     * @throws Exception
+     */
+    public static <T> String parseXml(T t) throws Exception {
+        xstream.processAnnotations(t.getClass());
+        return xstream.toXML(t);
     }
 }
