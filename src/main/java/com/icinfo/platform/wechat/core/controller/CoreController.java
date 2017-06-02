@@ -42,6 +42,13 @@ public class CoreController extends BaseController {
         return "error";
     }
 
+    /**
+     * 微信消息处理
+     *
+     * @param request 请求
+     * @return 处理结果
+     * @throws Exception
+     */
     @RequestMapping(value = "/service", method = RequestMethod.POST, produces = "application/xml;charset=UTF-8")
     public String processMsg(HttpServletRequest request) throws Exception {
         if (isWechatCall(request, ConfigConstant.WECHAT_TOKEN)) {

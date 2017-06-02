@@ -1,6 +1,6 @@
 package com.icinfo.platform.wechat.wxsdk.menu;
 
-import com.icinfo.platform.wechat.base.BaseResult;
+import com.icinfo.platform.wechat.wxsdk.base.BaseResult;
 import com.icinfo.platform.wechat.wxsdk.menu.bean.Menu;
 import com.icinfo.platform.wechat.wxsdk.token.TokenManager;
 import org.slf4j.Logger;

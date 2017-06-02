@@ -1,9 +1,9 @@
 package com.icinfo.platform.wechat.wxsdk.menu;
 
-import com.icinfo.platform.common.client.HttpClientExecutor;
 import com.icinfo.platform.common.util.JSONUtils;
-import com.icinfo.platform.wechat.base.BaseResult;
+import com.icinfo.platform.wechat.wxsdk.base.BaseResult;
 import com.icinfo.platform.wechat.wxsdk.base.BaseAPI;
+import com.icinfo.platform.wechat.wxsdk.common.client.HttpClientExecutor;
 import com.icinfo.platform.wechat.wxsdk.menu.bean.Menu;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.client.methods.RequestBuilder;

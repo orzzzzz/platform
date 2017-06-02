@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(
-        locations = {"classpath:entry/dev/spring-entry.xml"}
+        locations = {"classpath:entry/dev/spring-entry.xml", "classpath:spring-mvc.xml"}
 )
 public class SpringTxTestCase {
     public SpringTxTestCase() {

@@ -1,4 +1,4 @@
-package com.icinfo.platform.common.client;
+package com.icinfo.platform.wechat.wxsdk.common.client;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;

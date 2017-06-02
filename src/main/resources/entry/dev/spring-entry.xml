@@ -6,7 +6,7 @@
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
-                <value>classpath:/entry/dev/spring.properties</value>
+                <value>classpath:entry/dev/spring.properties</value>
                 <!--<value>classpath:/entry/dev/oss.properties</value>-->
                 <!--<value>classpath:/entry/kafka-consumer.properties</value>-->
                 <!--<value>classpath:/entry/kafka-producer.properties</value>-->

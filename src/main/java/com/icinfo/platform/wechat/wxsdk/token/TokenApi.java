@@ -1,7 +1,7 @@
 package com.icinfo.platform.wechat.wxsdk.token;
 
-import com.icinfo.platform.common.client.HttpClientExecutor;
 import com.icinfo.platform.wechat.wxsdk.base.BaseAPI;
+import com.icinfo.platform.wechat.wxsdk.common.client.HttpClientExecutor;
 import com.icinfo.platform.wechat.wxsdk.token.bean.Token;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.client.methods.RequestBuilder;

@@ -1,6 +1,6 @@
 package com.icinfo.platform.wechat.wxsdk.token.bean;
 
-import com.icinfo.platform.wechat.base.BaseResult;
+import com.icinfo.platform.wechat.wxsdk.base.BaseResult;
 
 /**
  * TODO

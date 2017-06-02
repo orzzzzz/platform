@@ -1,4 +1,4 @@
-package com.icinfo.platform.common.client;
+package com.icinfo.platform.wechat.wxsdk.common.client;
 
 import org.apache.http.Consts;
 import org.apache.http.HttpEntity;
@@ -64,7 +64,7 @@ public class JSONResponseHandler {
             if (status >= 200 && status < 300) {
                 HttpEntity entity = response.getEntity();
                 String result = EntityUtils.toString(entity, Consts.UTF_8);
-                return JSONUtils.parseObject(result, clazz);
+                return JSONUtils.parse(result, clazz);
             } else {
                 logger.error("http请求错误状态码：{}",String.valueOf(status));
                 throw new ClientProtocolException("Unexpected response status: " + status);

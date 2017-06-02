@@ -21,7 +21,7 @@ public class ConfigConstant {
     public static String WECHAT_APP_SECRET;
 
     /**
-     * 微信公众号：tokenz
+     * 微信公众号：token
      */
     public static String WECHAT_TOKEN;
 

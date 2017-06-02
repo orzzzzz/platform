@@ -2,8 +2,8 @@ package com.icinfo.platform.system.controller.client;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.icinfo.platform.common.bean.AjaxResult;
-import com.icinfo.platform.common.client.HttpClientExecutor;
 import com.icinfo.platform.common.util.JSONUtils;
+import com.icinfo.platform.wechat.wxsdk.common.client.HttpClientExecutor;
 import com.icinfo.platform.wechat.wxsdk.templete.bean.Template;
 import com.icinfo.platform.wechat.wxsdk.templete.bean.TemplateDate;
 import org.apache.http.client.methods.HttpUriRequest;

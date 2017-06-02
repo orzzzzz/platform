@@ -1,4 +1,4 @@
-package com.icinfo.platform.wechat.base;
+package com.icinfo.platform.wechat.wxsdk.base;
 
 /**
  * 微信接口范围基础类
