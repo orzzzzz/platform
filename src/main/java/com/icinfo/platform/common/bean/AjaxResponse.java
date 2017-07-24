@@ -1,5 +1,7 @@
 package com.icinfo.platform.common.bean;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.io.Serializable;
 
 /**
@@ -42,11 +44,13 @@ public class AjaxResponse<T> implements Serializable {
     /**
      * 子状态码
      */
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String subStatus;
 
     /**
      * 子状态码消息
      */
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String subMsg;
 
     /**

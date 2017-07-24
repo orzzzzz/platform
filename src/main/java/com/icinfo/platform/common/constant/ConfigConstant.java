@@ -1,14 +1,13 @@
 package com.icinfo.platform.common.constant;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 /**
  * 可配置常量
  */
 @Component
-@Lazy(false)
+//@Lazy(false)
 public class ConfigConstant {
     /**
      * 微信公众号：appId
