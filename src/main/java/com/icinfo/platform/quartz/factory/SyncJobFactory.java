@@ -1,7 +1,7 @@
 package com.icinfo.platform.quartz.factory;
 
+import com.icinfo.platform.quartz.dto.ScheduleJobDto;
 import com.icinfo.platform.quartz.model.ScheduleJob;
-import com.icinfo.platform.quartz.vo.ScheduleJobVo;
 import org.quartz.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +23,7 @@ public class SyncJobFactory extends QuartzJobBean {
     protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
         LOG.info("SyncJobFactory execute");
         JobDataMap mergedJobDataMap = context.getMergedJobDataMap();
-        ScheduleJob scheduleJob = (ScheduleJob) mergedJobDataMap.get(ScheduleJobVo.JOB_PARAM_KEY);
+        ScheduleJob scheduleJob = (ScheduleJob) mergedJobDataMap.get(ScheduleJobDto.JOB_PARAM_KEY);
         System.out.println("jobName:" + scheduleJob.getJobName() + "  " + scheduleJob);
         //String url = scheduleJob.getUrl();
         //CloseableHttpClient httpclient = HttpClients.createDefault();

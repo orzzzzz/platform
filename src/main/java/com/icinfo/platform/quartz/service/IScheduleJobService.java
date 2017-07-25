@@ -1,9 +1,10 @@
 package com.icinfo.platform.quartz.service;
 
 
-import com.icinfo.platform.quartz.vo.ScheduleJobVo;
+import com.icinfo.platform.quartz.dto.ScheduleJobDto;
 
 import java.util.List;
+
 
 /**
  * author : fengjing
@@ -16,29 +17,29 @@ public interface IScheduleJobService {
     /**
      * 初始化定时任务
      */
-    void initScheduleJob();
+    void initScheduleJob() throws Exception;
 
     /**
      * 新增
      * 
-     * @param scheduleJobVo
+     * @param scheduleJobDto
      * @return
      */
-    Long insert(ScheduleJobVo scheduleJobVo);
+    int insert(ScheduleJobDto scheduleJobDto);
 
     /**
      * 直接修改 只能修改运行的时间，参数、同异步等无法修改
      * 
-     * @param scheduleJobVo
+     * @param scheduleJobDto
      */
-    void update(ScheduleJobVo scheduleJobVo);
+    void update(ScheduleJobDto scheduleJobDto);
 
     /**
      * 删除重新创建方式
      * 
-     * @param scheduleJobVo
+     * @param scheduleJobDto
      */
-    void delUpdate(ScheduleJobVo scheduleJobVo);
+    void delUpdate(ScheduleJobDto scheduleJobDto);
 
     /**
      * 删除
@@ -77,21 +78,21 @@ public interface IScheduleJobService {
      * @param scheduleJobId
      * @return
      */
-    ScheduleJobVo get(Long scheduleJobId);
+    ScheduleJobDto get(Long scheduleJobId) throws Exception;
 
     /**
      * 查询任务列表
      * 
-     * @param scheduleJobVo
+     * @param scheduleJobDto
      * @return
      */
-    List<ScheduleJobVo> queryList(ScheduleJobVo scheduleJobVo);
+    List<ScheduleJobDto> queryList(ScheduleJobDto scheduleJobDto) throws Exception;
 
     /**
      * 获取运行中的任务列表
      *
      * @return
      */
-    List<ScheduleJobVo> queryExecutingJobList();
+    List<ScheduleJobDto> queryExecutingJobList();
 
 }

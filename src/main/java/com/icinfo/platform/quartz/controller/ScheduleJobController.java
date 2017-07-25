@@ -1,7 +1,7 @@
 package com.icinfo.platform.quartz.controller;
 
+import com.icinfo.platform.quartz.dto.ScheduleJobDto;
 import com.icinfo.platform.quartz.service.IScheduleJobService;
-import com.icinfo.platform.quartz.vo.ScheduleJobVo;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,12 +31,12 @@ public class ScheduleJobController {
      * @return
      */
     @RequestMapping(value = "input-schedule-job", method = RequestMethod.GET)
-    public String inputScheduleJob(ScheduleJobVo scheduleJobVo, ModelMap modelMap) {
+    public String inputScheduleJob(ScheduleJobDto scheduleJobDto, ModelMap modelMap) {
 
-        if (scheduleJobVo.getScheduleJobId() != null) {
-            ScheduleJobVo scheduleJob = scheduleJobService.get(scheduleJobVo.getScheduleJobId());
-            scheduleJob.setKeywords(scheduleJobVo.getKeywords());
-            modelMap.put("scheduleJobVo", scheduleJob);
+        if (scheduleJobDto.getScheduleJobId() != null) {
+            ScheduleJobDto scheduleJob = scheduleJobService.get(scheduleJobDto.getScheduleJobId());
+            scheduleJob.setKeywords(scheduleJobDto.getKeywords());
+            modelMap.put("scheduleJobDto", scheduleJob);
         }
 
         return "quartz/input-schedule-job";
@@ -93,22 +93,22 @@ public class ScheduleJobController {
     /**
      * 保存任务
      *
-     * @param scheduleJobVo
+     * @param scheduleJobDto
      * @return
      */
     @RequestMapping(value = "save-schedule-job", method = RequestMethod.POST)
-    public String saveScheduleJob(ScheduleJobVo scheduleJobVo) {
+    public String saveScheduleJob(ScheduleJobDto scheduleJobDto) {
 
         //测试用随便设个状态
-        scheduleJobVo.setStatus("1");
+        scheduleJobDto.setStatus("1");
 
-        if (scheduleJobVo.getScheduleJobId() == null) {
-            scheduleJobService.insert(scheduleJobVo);
-        } else if (StringUtils.equalsIgnoreCase(scheduleJobVo.getKeywords(),"delUpdate")){
+        if (scheduleJobDto.getScheduleJobId() == null) {
+            scheduleJobService.insert(scheduleJobDto);
+        } else if (StringUtils.equalsIgnoreCase(scheduleJobDto.getKeywords(),"delUpdate")){
             //直接拿keywords存一下，就不另外重新弄了
-            scheduleJobService.delUpdate(scheduleJobVo);
+            scheduleJobService.delUpdate(scheduleJobDto);
         }else {
-            scheduleJobService.update(scheduleJobVo);
+            scheduleJobService.update(scheduleJobDto);
         }
         return "redirect:list-schedule-job";
     }
@@ -120,12 +120,12 @@ public class ScheduleJobController {
      * @return
      */
     @RequestMapping(value = "list-schedule-job", method = RequestMethod.GET)
-    public String listScheduleJob(ModelMap modelMap) {
-        ScheduleJobVo scheduleJobVo = new ScheduleJobVo();
-        List<ScheduleJobVo> scheduleJobVoList = scheduleJobService.queryList(scheduleJobVo);
-        modelMap.put("scheduleJobVoList", scheduleJobVoList);
+    public String listScheduleJob(ModelMap modelMap) throws Exception {
+        ScheduleJobDto scheduleJobDto = new ScheduleJobDto();
+        List<ScheduleJobDto> scheduleJobDtoList = scheduleJobService.queryList(scheduleJobDto);
+        modelMap.put("scheduleJobDtoList", scheduleJobDtoList);
 
-        List<ScheduleJobVo> executingJobList = scheduleJobService.queryExecutingJobList();
+        List<ScheduleJobDto> executingJobList = scheduleJobService.queryExecutingJobList();
         modelMap.put("executingJobList", executingJobList);
 
         return "quartz/list-schedule-job";

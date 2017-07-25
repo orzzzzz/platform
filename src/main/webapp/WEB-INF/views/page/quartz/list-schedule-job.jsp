@@ -15,7 +15,7 @@
         <td>任务描述</td>
         <td>操作</td>
     </tr>
-    <c:forEach items="${scheduleJobVoList}" var="item">
+    <c:forEach items="${scheduleJobDtoList}" var="item">
         <tr>
             <td>${item.jobName}</td>
             <td>${item.aliasName}</td>
@@ -29,7 +29,7 @@
             </c:if>
             <td>${item.cronExpression}</td>
             <td>
-                    ${item.isSync?'异步':'同步'}
+                    ${item.isSync?'true':'false'}
             </td>
             <td>${item.url}</td>
             <td>${item.description}</td>

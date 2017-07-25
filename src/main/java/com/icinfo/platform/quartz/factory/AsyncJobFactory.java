@@ -1,7 +1,7 @@
 package com.icinfo.platform.quartz.factory;
 
+import com.icinfo.platform.quartz.dto.ScheduleJobDto;
 import com.icinfo.platform.quartz.model.ScheduleJob;
-import com.icinfo.platform.quartz.vo.ScheduleJobVo;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.slf4j.Logger;
@@ -21,7 +21,7 @@ public class AsyncJobFactory extends QuartzJobBean {
     @Override
     protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
         LOG.info("AsyncJobFactory execute");
-        ScheduleJob scheduleJob = (ScheduleJob) context.getMergedJobDataMap().get(ScheduleJobVo.JOB_PARAM_KEY);
+        ScheduleJob scheduleJob = (ScheduleJob) context.getMergedJobDataMap().get(ScheduleJobDto.JOB_PARAM_KEY);
         System.out.println("jobName:" + scheduleJob.getJobName() + "  " + scheduleJob);
     }
 }

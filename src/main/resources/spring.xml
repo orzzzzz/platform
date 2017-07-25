@@ -147,19 +147,6 @@
         </property>
     </bean>
 
-    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-        <property name="dataSource">
-            <ref bean="dataSource"/>
-        </property>
-        <property name="fetchSize">
-            <value>${jdbcTemplate.fetchSize}</value>
-        </property>
-    </bean>
-
-    <bean id="jdbcDao" class="com.dexcoder.dal.spring.JdbcDaoImpl">
-        <property name="jdbcTemplate" ref="jdbcTemplate"/>
-    </bean>
-
     <bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="quartzProperties">
@@ -269,4 +256,5 @@
     <!--</bean>-->
 
     <!--<import resource="classpath:spring-redis.xml"/>-->
+    <!--<property name="configLocation" value="classpath:quartz.properties" />-->
 </beans>

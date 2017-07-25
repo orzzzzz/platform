@@ -1,10 +1,10 @@
 package com.icinfo.platform.quartz.utils;
 
+import com.icinfo.platform.quartz.dto.ScheduleJobDto;
 import com.icinfo.platform.quartz.exceptions.ScheduleException;
 import com.icinfo.platform.quartz.factory.AsyncJobFactory;
 import com.icinfo.platform.quartz.factory.SyncJobFactory;
 import com.icinfo.platform.quartz.model.ScheduleJob;
-import com.icinfo.platform.quartz.vo.ScheduleJobVo;
 import org.quartz.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -92,7 +92,7 @@ public class ScheduleUtils {
         scheduleJob.setJobTrigger(jobTrigger);
 
         //放入参数，运行时的方法可以获取
-        jobDetail.getJobDataMap().put(ScheduleJobVo.JOB_PARAM_KEY, scheduleJob);
+        jobDetail.getJobDataMap().put(ScheduleJobDto.JOB_PARAM_KEY, scheduleJob);
 
         try {
             scheduler.scheduleJob(jobDetail, trigger);
