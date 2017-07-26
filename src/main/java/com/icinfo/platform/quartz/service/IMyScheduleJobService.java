@@ -1,8 +1,8 @@
 package com.icinfo.platform.quartz.service;
 
 
-import com.icinfo.platform.quartz.dto.ScheduleJobDto;
-import com.icinfo.platform.quartz.model.ScheduleJob;
+import com.icinfo.platform.quartz.dto.MyScheduleJobDto;
+import com.icinfo.platform.quartz.model.MyScheduleJob;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ import java.util.List;
  * description : 定时任务服务
  * version : 1.0
  */
-public interface IScheduleJobService {
+public interface IMyScheduleJobService {
 
     /**
      * 初始化定时任务
@@ -22,29 +22,29 @@ public interface IScheduleJobService {
 
     /**
      * 新增
-     * 
-     * @param scheduleJobDto
+     *
+     * @param myScheduleJobDto
      * @return
      */
-    int insert(ScheduleJobDto scheduleJobDto);
+    int insert(MyScheduleJobDto myScheduleJobDto);
 
     /**
      * 直接修改 只能修改运行的时间，参数、同异步等无法修改
-     * 
-     * @param scheduleJobDto
+     *
+     * @param myScheduleJobDto
      */
-    void update(ScheduleJobDto scheduleJobDto);
+    void update(MyScheduleJobDto myScheduleJobDto);
 
     /**
      * 删除重新创建方式
-     * 
-     * @param scheduleJobDto
+     *
+     * @param myScheduleJobDto
      */
-    void delUpdate(ScheduleJobDto scheduleJobDto);
+    void delUpdate(MyScheduleJobDto myScheduleJobDto);
 
     /**
      * 删除
-     * 
+     *
      * @param scheduleJobId
      */
     void delete(Long scheduleJobId);
@@ -75,25 +75,25 @@ public interface IScheduleJobService {
 
     /**
      * 获取任务对象
-     * 
+     *
      * @param scheduleJobId
      * @return
      */
-    ScheduleJob get(Long scheduleJobId) throws Exception;
+    MyScheduleJob get(Long scheduleJobId) throws Exception;
 
     /**
      * 查询任务列表
-     * 
-     * @param scheduleJobDto
+     *
+     * @param myScheduleJobDto
      * @return
      */
-    List<ScheduleJobDto> queryList(ScheduleJobDto scheduleJobDto) throws Exception;
+    List<MyScheduleJobDto> queryList(MyScheduleJobDto myScheduleJobDto) throws Exception;
 
     /**
      * 获取运行中的任务列表
      *
      * @return
      */
-    List<ScheduleJobDto> queryExecutingJobList();
+    List<MyScheduleJobDto> queryExecutingJobList();
 
 }

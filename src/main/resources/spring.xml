@@ -256,5 +256,4 @@
     <!--</bean>-->
 
     <!--<import resource="classpath:spring-redis.xml"/>-->
-    <!--<property name="configLocation" value="classpath:quartz.properties" />-->
 </beans>

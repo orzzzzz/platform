@@ -4,7 +4,7 @@
 
 <form action="save-schedule-job" method="post" class="form-horizontal">
     <input type="hidden" name="scheduleJobId" value="${scheduleJobDto.scheduleJobId}">
-    <input type="hidden" name="keywords" value="${scheduleJobDto.keywords}">
+    <%--<input type="hidden" name="keywords" value="${scheduleJobDto.keywords}">--%>
 
     <div class="form-group">
         <label for="jobName" class="col-sm-2 control-label">任务名称</label>

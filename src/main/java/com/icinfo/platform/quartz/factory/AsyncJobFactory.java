@@ -2,11 +2,15 @@ package com.icinfo.platform.quartz.factory;
 
 import com.icinfo.platform.quartz.dto.ScheduleJobDto;
 import com.icinfo.platform.quartz.model.ScheduleJob;
+import org.quartz.JobDataMap;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
+import org.quartz.SchedulerContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationContext;
 import org.springframework.scheduling.quartz.QuartzJobBean;
+import org.springframework.util.MethodInvoker;
 
 /**
  * author : fengjing
@@ -20,8 +24,20 @@ public class AsyncJobFactory extends QuartzJobBean {
     private static final Logger LOG = LoggerFactory.getLogger(AsyncJobFactory.class);
     @Override
     protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
-        LOG.info("AsyncJobFactory execute");
-        ScheduleJob scheduleJob = (ScheduleJob) context.getMergedJobDataMap().get(ScheduleJobDto.JOB_PARAM_KEY);
-        System.out.println("jobName:" + scheduleJob.getJobName() + "  " + scheduleJob);
+        JobDataMap mergedJobDataMap = context.getMergedJobDataMap();
+        ScheduleJob scheduleJob = (ScheduleJob) mergedJobDataMap.get(ScheduleJobDto.JOB_PARAM_KEY);
+        try {
+            SchedulerContext schCtx = context.getScheduler().getContext();
+            ApplicationContext appCtx = (ApplicationContext) schCtx.get("applicationContextKey");
+            Object bean = appCtx.getBean(Class.forName("com.icinfo.platform.quartz.service.impl.ScheduleJobServiceImpl"));
+            MethodInvoker methodInvoker = new MethodInvoker();
+            methodInvoker.setTargetObject(bean);
+            methodInvoker.setTargetMethod("printTest");
+            methodInvoker.prepare();
+            methodInvoker.invoke();
+        } catch (Exception e) {
+            System.out.println("------------------------:执行错误~");
+            e.printStackTrace();
+        }
     }
 }
